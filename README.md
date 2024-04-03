@@ -64,7 +64,53 @@ Once we have our frame constructed with the source MAC address, destionation MAC
 <br><br>
 In physical layer, it will get converted into 0's and 1's and then to signals, signals could be light signal that we send accross fiber optics, it could be an electrical pulse that we send accross a copper wire or it might be electromagnetic signal that we send with wireless.<br><br>
 ## Application Layer Protocols
-#
+# Transferring Data
+Whenever we go on our workstation and ask for a website "www.google.com", we are asking an HTML document to be tranferred from the server to our workstation.
+<br>
+HTTP or HTTPs are used. These protocols allow us to transfer HTML document between server and client.
+<br>HTTPs
+<br>->SSL[Secure Socket Layer] 
+<br>->TLS[Transport Layer Security]
+<br>These are literally the same protocol, they changed their name around 2000. These are used to provide encryption when we are using HTTPs.
+<br><br>
+Not all files that we transfer when we are working with the data network are going to be an HTML files via website. Sometimes we have files on our wokrstation that need to get transferred to a server or to a network device. Maybe there are some specific files that are not HTML files on a server that we need to access and download to our workstation.
+<br>
+So, when we are working with File Transfer, we need to have several File Transfer Protocol.
+<br>->FTP [File Transfer Protocol] [Port no.: 20 & 21]
+<br>->sFTP [Secure File Transfer Protocol] [Port no.: 22]
+<br>->TFTP [Trivial File Transfer Protocol] [Port no.: 69]
+<br>
+FTP is somewhat messy protocol, especially if you have to use it through firewall.
+<br>
+sFTP is FTP with encryption. It operates on port 22 on which operates another utility that use called SSH or Secure Shell. The reason that it is the same port number is that we are actually creating and SSH connection and then using FTP on top of it.
+<br>
+TPTP can be used to transfer small files[OS File]
+<br>
+There is one more from Microsoft called SMB[port: 445] which stands for server message block.
+If you have shared drive, shared network drive mounted on your workstation, typically SMB is used. It allows us to mount a drive on out windows workstation or other workstation.
+With SMB, we can just browse that drive as if it were a local drive on our workstation, yet it is a network drive.<br><br>
+# E-mail
+It is a way of transferring a file from a server to a client again. We just use different format, in this case, we use email format.
+<br>
+There are three methods that we need in order to transfer email.
+<br>->POP3 [Post Office Protocol version 3]
+<br>->IMAP [Internet Message Access Protocol]
+<br>These two are for receiving mail from server to client.
+<br>->SMTP [Simple Mail Transfer Protocol]
+<br>This is for sending mail from client to server.
+<br><br>
+So, when we are configuring email clients, usually we need to either POP or IMAP, as well as SMTP.
+The way we configure them has changed pretty drastically over time.
+MAil services like gmail, outlook, yahoo and others have changed the way we configure our devices for email. We just put in username and password, it automatically configures all the protocols for us. These protocols have two transport layer port numbers they can use.
+<br>->POP3 : 110(unencrypted), 995(encrypted)
+<br>->IMAP: 143(unencrypted), 993(encrypted)
+<br>->SMTP : 25(unencrypted), 465(encrypted)
+<br><br>
+
+# Authentication
+
+
+
 
 
 
