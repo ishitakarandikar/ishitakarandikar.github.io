@@ -1,7 +1,5 @@
 # Computer Networking
 
-## What is Data Networking?
-System of Hardware, Software and Protocols used to move information from one device to another.
 
 ## OSI Model
 Stands for Open System Interconnect
