@@ -16,9 +16,10 @@ Websites are written in HTMl[Hypertext Markup Language], and we use HTTP to tran
 This layer works in conjunction with the transport layer to take that data, break it into smaller pieces, and then add it to a header.<br>
 Header is put on the data at the transport layer.<br>
 
+SEGMENT
 | Source Port | Destination Port | Flags | Seq# | Ack# | Payload[Data] |
 | ----------- | ---------------- | ----- | ---- | ---- | ------------- |
-SEGMENT
+
 
 The Transport Layer, since it is setting up a session between out client and our server, we have speceific information in there to allow that to happen.<br>
 Flags - General information about what is happening in the transaction.
