@@ -132,8 +132,52 @@ Allows us to translate the name google.com into and IP address that we actually 
 <br>Command : nslookup google.com
 
 ### NTP [Network Time Protocol]
+It is a device on the network that has a clock on it.
+That clock is usually synchronized with some government run atomic clock, so it has very precise time.
+<br><br>
+So, our server on the network would go retrieve the precise time from some atomic time some place on the internet and then synchronize it locally so that when local client need to know how to set their clocks, they can send a message to our sever, NTP server, NTP will reply back with the time.
+Now the client can set its time. This will inclue the date on the workstation.
+<br><br>
+NTP is important because services like encryption will often times validate whether or not a server that we are connection to is valid by checking a certificate and the certificate is often only valid for a specific period of time, so we need some kind of clock to validate that the time of certificate is okay to use.
+<br><br>
+Also, we have log messages that are stored on clients, servers, network devices, firewalls etc. Those logs need a precise time so that if an event occurs whether it be a technical or security event, we know exactly the right time that is happening so we can cordinate with other devic logs on our network.
+<br><br>
+Port : 123
 
+## Network Management
+Often times we have a device on our network, that we are going to manage from central location.
+<br>Two utilities can be used for this.
+### Telnet/Secure Shell
+<br>->Telnet [Not encrypted] [Port : 23]
+<br>->Secure Shell [Encrypted] [Port : 22]
+<br>So, this is a way to actually use a command-line interface to access devices around the network, whether it be a server, like a linux server, could be a router or a switch or a firewall or multitude of other devices that we can access with.
+<br>
+So, on our network administration workstation , we might SSH to a router, or a switch or a server here, or even a firewall. The devices that we are SSHing are going to be the server.The device weare SSHing from becomes our client.
 
+### SNMP [Simple Network MAnagement Protocol]
+It is a way of devices to send information back to a centralized information like log messages or information about port up and down, or maybe some other event on our device that we configure to tell our SNMP server about. All these devices sending information about SNMP are client. These clients can report in to the server what is happening with them, or the server can send out message to all the devices to tell it all the information they have about their devices that has SNMP number assigned to it.
+<br>These numbers are MIB [Management information base].
+<br>These information can be sent out to SNMP sever, this server can them use that information to populate a table of all the events happening on the devices.
+<br><br>SNMP Trap - When an event both good or both happens, it can send a message to SNMP server to tell it the event that happened. With the central server, we can configure the central server to send out alerts to the network administrator telling them to fix it.
+<br><br>Port : 161 & 162
+### Syslog
+Mechanism to take the logs on each one of our devices and send them to a centralized syslog server so thay can be correlated with other events on our network.
+<br> Port : 514
+### RDP [Remote Desktop Protocol]
+Allows us to access the graphical user interface of devices on our network when we are not local.
+<br>Port : 3389
 
+## Audio/Visual Protocols
+Allows us to either have voiceover IP phone calls or video phone between two organizations.
+### H.323
+Allows for video and audio communication between two devices.
+### SIP [Session Initiation Protocol]
+Port : 5060 or 5061
+<br>Used to transfer voice when we are using our voiceover IP phone to a voice gateway which gets us out of the rest of the telephone system so we can make calls. 
+
+## SQL Databse Protocols 
+SQL is a protocol named Structured Query Language and it is actually server[SQL server], language to access ata on that server, protocol[used to communicate accross network to access that database].
+
+# Transport Layer Protocols
 
 
