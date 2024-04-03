@@ -61,8 +61,8 @@ For Ethernet that is typically 1500 bytes.
 Once we have our frame constructed with the source MAC address, destionation MAC Address and layer 3 protocol that we are using, we can then take that frame and send it down to the physical layer.
 <br><br>
 In physical layer, it will get converted into 0's and 1's and then to signals, signals could be light signal that we send accross fiber optics, it could be an electrical pulse that we send accross a copper wire or it might be electromagnetic signal that we send with wireless.<br><br>
-## Application Layer Protocols
-# Transferring Data
+# Application Layer Protocols
+## Transferring Data
 Whenever we go on our workstation and ask for a website "www.google.com", we are asking an HTML document to be tranferred from the server to our workstation.
 <br>
 HTTP or HTTPs are used. These protocols allow us to transfer HTML document between server and client.
@@ -87,7 +87,7 @@ TPTP can be used to transfer small files[OS File]
 There is one more from Microsoft called SMB[port: 445] which stands for server message block.
 If you have shared drive, shared network drive mounted on your workstation, typically SMB is used. It allows us to mount a drive on out windows workstation or other workstation.
 With SMB, we can just browse that drive as if it were a local drive on our workstation, yet it is a network drive.<br><br>
-# E-mail
+## E-mail
 It is a way of transferring a file from a server to a client again. We just use different format, in this case, we use email format.
 <br>
 There are three methods that we need in order to transfer email.
@@ -105,7 +105,7 @@ MAil services like gmail, outlook, yahoo and others have changed the way we conf
 <br>->SMTP : 25(unencrypted), 465(encrypted)
 <br><br>
 
-# Authentication
+## Authentication
 
 
 
