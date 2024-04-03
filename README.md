@@ -17,7 +17,7 @@ This layer works in conjunction with the transport layer to take that data, brea
 Header is put on the data at the transport layer.<br>
 
 |Segment|
-| -------------------------------------------------------------------- |
+| ----------- | ---------------- | ----- | ---- | ---- | ------------- |
 | Source Port | Destination Port | Flags | Seq# | Ack# | Payload[Data] |
 
 
