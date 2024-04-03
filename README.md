@@ -64,7 +64,7 @@ Once we have our frame constructed with the source MAC address, destionation MAC
 <br><br>
 In physical layer, it will get converted into 0's and 1's and then to signals, signals could be light signal that we send accross fiber optics, it could be an electrical pulse that we send accross a copper wire or it might be electromagnetic signal that we send with wireless.<br><br>
 ## Application Layer Protocols
-
+#
 
 
 
