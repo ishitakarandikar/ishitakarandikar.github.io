@@ -109,14 +109,29 @@ MAil services like gmail, outlook, yahoo and others have changed the way we conf
 
 Your settings, desktop, mapped drives and what not will all show up on your client workstation, regardless of which one you are using.
 Two protocols are used for this.
-<br>->LDAP [Lightweight Directory Access Protocol](port: 389)
-<br>->LDAPs [LDAP Secure(encrypted)](port: 636)
+<br>->LDAP[Lightweight Directory Access Protocol] (port: 389)
+<br>->LDAPs[LDAP Secure] (port: 636)
 <br>
 We put username and password on the client, we send it to the server, then server will then send a token back saying "yes, this user is authenticated". After that, server may send additional information that has user settings and what not for the client. 
 
 ## Network Services
 ### DHCP [Dynamic Host Configuration Protocol]
+Responsible for giving your wokrstation an IP Address when it first is plugged into the network. IP are an identifier for your device on the network. Operates at the network layer.
+<br>Instead of having users to configure this or configure them manually, we often times will use a DHCP server to do this.
+Cable modem or cable router or wireless access point, all these devices have the capabilities to offer a DHCP server. That way, when you turn on your device or you connect it to the wireless network or you plug into the wired network, it automatically gets and IP address.
+<br><br>
+So, when we plug-in the client into the network, we are going to send out a discover message. The DHCP server then is going to reply with something called an offer message. Offer message is going to have a IP address, subnet mask, default gateway, DNS server, possibly some other information as well.
+Client will respon back and accept that offer. Server then will respond back with acknowledgement.
+<br><br>
+Port : 67/68
+### DNS [Domain Name System]
+Also called name server. Allows us to take names like ishita.com, google.com.
+Allows us to translate the name google.com into and IP address that we actually use to transfer information at network layer.
+<br>When we search www.google.com, it will first send a message to DNS server asking the IP of this domain name and then DNS server will reply with IP address of google.com.
+<br><br>Port : 53 [Not encrypted] 443 [encrypted]
+<br>Command : nslookup google.com
 
+### NTP [Network Time Protocol]
 
 
 
