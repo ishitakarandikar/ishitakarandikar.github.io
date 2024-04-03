@@ -179,5 +179,29 @@ Port : 5060 or 5061
 SQL is a protocol named Structured Query Language and it is actually server[SQL server], language to access ata on that server, protocol[used to communicate accross network to access that database].
 
 # Transport Layer Protocols
+This layer is responsible for building a session and maintaining a session between the two endpoints i.e client and server on a data network.
+## TCP [Transmission Control Protocol]
+Protocol that initiate communication between two devices.<br>
+It uses the three way handshake, very precise process that the client and server need to go through before we can send information.
+<br>
+SYN - First message to the server indicating that client wants to start a conversation.
+<br>SYN+ACK - Server replies back. This alerts the client that server is up for the conversation.
+<br>ACK - Client responds back with acknowledgement.
+<br><br>When the conversation is all done and the website has finished transferring, client will send a message to disconnect.
+<br><br>
+The four way disconnect, to disconnect the client sends a message to server.
+<br>FIN - client wants to disconnect.
+<br>FIN+ACK - server acknowledges.
+<br>FIN - server sends out fin to client to disconnect.
+<br>FIN+ACK - client acknowledges.
+<br><br>
+TCP RESET - This can be sent from either web server or client, and when TCP reset happens, communication is over.
+It can also come from client.
+Also, if there is some device in the middle like firewall, that is paying attention to the conversation, watching nefarious activity, it can also send a reset as well.
 
-
+## UDP [User Datagram Protocol]
+Works similar to TCP in that we are going to set up a session between two devices.
+However, this time, we are just going to start talking.
+Client will say to server to send data. And then server, if it recieves it and it is able to, it will send the data to the client.
+<br>There is no mechanism to make sure that the data sent was actually recieved. There is no three way handshake, there is mo four way disconnect, there is no reset, no reliable communication, no sequence number, no acknowledgement numbers.
+<br>Used for efficient data transfer.
