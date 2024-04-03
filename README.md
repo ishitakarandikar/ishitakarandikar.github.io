@@ -24,7 +24,10 @@ SEGMENT
 The Transport Layer, since it is setting up a session between out client and our server, we have speceific information in there to allow that to happen.<br>
 Flags - General information about what is happening in the transaction.
 Seq#, Ack# - Keep track of how much data has been sent and received.
-segment - chunck of data,
+segment - chunck of data, with a transport layer header [TCP Header]
+<br>
+This info, allows client and server to set up a session and keep track of what data has been sent and received.
+<br><br>
 
 
 
