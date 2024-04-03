@@ -107,6 +107,16 @@ MAil services like gmail, outlook, yahoo and others have changed the way we conf
 
 ## Authentication
 
+Your settings, desktop, mapped drives and what not will all show up on your client workstation, regardless of which one you are using.
+Two protocols are used for this.
+<br>->LDAP [Lightweight Directory Access Protocol](port: 389)
+<br>->LDAPs [LDAP Secure(encrypted)](port: 636)
+<br>
+We put username and password on the client, we send it to the server, then server will then send a token back saying "yes, this user is authenticated". After that, server may send additional information that has user settings and what not for the client. 
+
+## Network Services
+### DHCP [Dynamic Host Configuration Protocol]
+
 
 
 
