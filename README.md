@@ -14,11 +14,6 @@ Websites are written in HTMl[Hypertext Markup Language], and we use HTTP to tran
 This layer works in conjunction with the transport layer to take that data, break it into smaller pieces, and then add it to a header.<br>
 Header is put on the data at the transport layer.<br>
 
-SEGMENT
-| Source Port | Destination Port | Flags | Seq# | Ack# | Payload[Data] |
-| ----------- | ---------------- | ----- | ---- | ---- | ------------- |
-
-
 The Transport Layer, since it is setting up a session between out client and our server, we have speceific information in there to allow that to happen.<br>
 Flags - General information about what is happening in the transaction.<br>
 Seq#, Ack# - Keep track of how much data has been sent and received.<br>
@@ -34,8 +29,6 @@ So, we take our transport layer information which is going to keep that sesion b
 <br>
 Segment becomes the payload of our network layer, and then we add this header, we add Source IP Address, Destionation IP Address, a value called TTL[Time to Live] and other.<br>
 PACKET
-| Source IP Address | Destination IP Address | TTL | Other | Payload[Segment] |
-| ----------------- | ---------------------- | --- | ----- | ---------------- |
 
 Packet - chunck of data with the network layer header [IP Header]
 <br>
@@ -46,8 +39,6 @@ Now, in order to get our packet to go from one device to next[from workstation t
 So, we send our network layer packet down to the data link layer and put it in a frame.
 <br>
 FRAME
-| Source MAC Address | Destination MAC Address | Layer 3 Protocol | Payload[Packet] |
-| ------------------ | ----------------------- | ---------------- | --------------- |
 
 Frmae - chunk of data, with a DLL Header[Ethernet Header]
 <br><br>
