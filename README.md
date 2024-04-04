@@ -52,7 +52,7 @@ Once we have our frame constructed with the source MAC address, destination MAC 
 In physical layer, it will get converted into 0's and 1's and then to signals, signals could be light signal that we send across fiber optics, it could be an electrical pulse that we send accross a copper wire or it might be electromagnetic signal that we send with wireless.<br><br>
 # Application Layer Protocols
 ## Transferring Data
-Whenever we go on our workstation and ask for a website "www.google.com", we are asking an HTML document to be tranferred from the server to our workstation.
+Whenever we go on our workstation and ask for a website "www.google.com", we are asking an HTML document to be transferred from the server to our workstation.
 <br>
 HTTP or HTTPs are used. These protocols allow us to transfer HTML document between server and client.
 <br>HTTPs
@@ -60,7 +60,7 @@ HTTP or HTTPs are used. These protocols allow us to transfer HTML document betwe
 <br>->TLS[Transport Layer Security]
 <br>These are literally the same protocol, they changed their name around 2000. These are used to provide encryption when we are using HTTPs.
 <br><br>
-Not all files that we transfer when we are working with the data network are going to be an HTML files via website. Sometimes we have files on our wokrstation that need to get transferred to a server or to a network device. Maybe there are some specific files that are not HTML files on a server that we need to access and download to our workstation.
+Not all files that we transfer when we are working with the data network are going to be an HTML files via website. Sometimes we have files on our workstation that need to get transferred to a server or to a network device. Maybe there are some specific files that are not HTML files on a server that we need to access and download to our workstation.
 <br>
 So, when we are working with File Transfer, we need to have several File Transfer Protocol.
 <br>->FTP [File Transfer Protocol] [Port no.: 20 & 21]
@@ -88,7 +88,7 @@ There are three methods that we need in order to transfer email.
 <br><br>
 So, when we are configuring email clients, usually we need to either POP or IMAP, as well as SMTP.
 The way we configure them has changed pretty drastically over time.
-MAil services like gmail, outlook, yahoo and others have changed the way we configure our devices for email. We just put in username and password, it automatically configures all the protocols for us. These protocols have two transport layer port numbers they can use.
+Mail services like gmail, outlook, yahoo and others have changed the way we configure our devices for email. We just put in username and password, it automatically configures all the protocols for us. These protocols have two transport layer port numbers they can use.
 <br>->POP3 : 110(unencrypted), 995(encrypted)
 <br>->IMAP: 143(unencrypted), 993(encrypted)
 <br>->SMTP : 25(unencrypted), 465(encrypted)
@@ -105,12 +105,12 @@ We put username and password on the client, we send it to the server, then serve
 
 ## Network Services
 ### DHCP [Dynamic Host Configuration Protocol]
-Responsible for giving your wokrstation an IP Address when it first is plugged into the network. IP are an identifier for your device on the network. Operates at the network layer.
+Responsible for giving your workstation an IP Address when it first is plugged into the network. IP are an identifier for your device on the network. Operates at the network layer.
 <br>Instead of having users to configure this or configure them manually, we often times will use a DHCP server to do this.
 Cable modem or cable router or wireless access point, all these devices have the capabilities to offer a DHCP server. That way, when you turn on your device or you connect it to the wireless network or you plug into the wired network, it automatically gets and IP address.
 <br><br>
 So, when we plug-in the client into the network, we are going to send out a discover message. The DHCP server then is going to reply with something called an offer message. Offer message is going to have a IP address, subnet mask, default gateway, DNS server, possibly some other information as well.
-Client will respon back and accept that offer. Server then will respond back with acknowledgement.
+Client will respond back and accept that offer. Server then will respond back with acknowledgement.
 <br><br>
 Port : 67/68
 ### DNS [Domain Name System]
@@ -125,11 +125,11 @@ It is a device on the network that has a clock on it.
 That clock is usually synchronized with some government run atomic clock, so it has very precise time.
 <br><br>
 So, our server on the network would go retrieve the precise time from some atomic time some place on the internet and then synchronize it locally so that when local client need to know how to set their clocks, they can send a message to our sever, NTP server, NTP will reply back with the time.
-Now the client can set its time. This will inclue the date on the workstation.
+Now the client can set its time. This will include the date on the workstation.
 <br><br>
 NTP is important because services like encryption will often times validate whether or not a server that we are connection to is valid by checking a certificate and the certificate is often only valid for a specific period of time, so we need some kind of clock to validate that the time of certificate is okay to use.
 <br><br>
-Also, we have log messages that are stored on clients, servers, network devices, firewalls etc. Those logs need a precise time so that if an event occurs whether it be a technical or security event, we know exactly the right time that is happening so we can cordinate with other devic logs on our network.
+Also, we have log messages that are stored on clients, servers, network devices, firewalls etc. Those logs need a precise time so that if an event occurs whether it be a technical or security event, we know exactly the right time that is happening so we can co-ordinate with other device logs on our network.
 <br><br>
 Port : 123
 
@@ -141,16 +141,16 @@ Often times we have a device on our network, that we are going to manage from ce
 <br>->Secure Shell [Encrypted] [Port : 22]
 <br>So, this is a way to actually use a command-line interface to access devices around the network, whether it be a server, like a linux server, could be a router or a switch or a firewall or multitude of other devices that we can access with.
 <br>
-So, on our network administration workstation , we might SSH to a router, or a switch or a server here, or even a firewall. The devices that we are SSHing are going to be the server.The device weare SSHing from becomes our client.
+So, on our network administration workstation, we might SSH to a router, or a switch or a server here, or even a firewall. The devices that we are SSHing are going to be the server. The device weare SSHing from becomes our client.
 
-### SNMP [Simple Network MAnagement Protocol]
+### SNMP [Simple Network Management Protocol]
 It is a way of devices to send information back to a centralized information like log messages or information about port up and down, or maybe some other event on our device that we configure to tell our SNMP server about. All these devices sending information about SNMP are client. These clients can report in to the server what is happening with them, or the server can send out message to all the devices to tell it all the information they have about their devices that has SNMP number assigned to it.
 <br>These numbers are MIB [Management information base].
 <br>These information can be sent out to SNMP sever, this server can them use that information to populate a table of all the events happening on the devices.
 <br><br>SNMP Trap - When an event both good or both happens, it can send a message to SNMP server to tell it the event that happened. With the central server, we can configure the central server to send out alerts to the network administrator telling them to fix it.
 <br><br>Port : 161 & 162
 ### Syslog
-Mechanism to take the logs on each one of our devices and send them to a centralized syslog server so thay can be correlated with other events on our network.
+Mechanism to take the logs on each one of our devices and send them to a centralized syslog server so they can be correlated with other events on our network.
 <br> Port : 514
 ### RDP [Remote Desktop Protocol]
 Allows us to access the graphical user interface of devices on our network when we are not local.
@@ -164,8 +164,8 @@ Allows for video and audio communication between two devices.
 Port : 5060 or 5061
 <br>Used to transfer voice when we are using our voiceover IP phone to a voice gateway which gets us out of the rest of the telephone system so we can make calls. 
 
-## SQL Databse Protocols 
-SQL is a protocol named Structured Query Language and it is actually server[SQL server], language to access ata on that server, protocol[used to communicate accross network to access that database].
+## SQL Database Protocols 
+SQL is a protocol named Structured Query Language and it is actually server[SQL server], language to access data on that server, protocol[used to communicate across network to access that database].
 
 # Transport Layer Protocols
 This layer is responsible for building a session and maintaining a session between the two endpoints i.e client and server on a data network.
@@ -191,8 +191,8 @@ Also, if there is some device in the middle like firewall, that is paying attent
 ## UDP [User Datagram Protocol]
 Works similar to TCP in that we are going to set up a session between two devices.
 However, this time, we are just going to start talking.
-Client will say to server to send data. And then server, if it recieves it and it is able to, it will send the data to the client.
-<br>There is no mechanism to make sure that the data sent was actually recieved. There is no three way handshake, there is mo four way disconnect, there is no reset, no reliable communication, no sequence number, no acknowledgement numbers.
+Client will say to server to send data. And then server, if it receives it and it is able to, it will send the data to the client.
+<br>There is no mechanism to make sure that the data sent was actually received. There is no three way handshake, there is no four way disconnect, there is no reset, no reliable communication, no sequence number, no acknowledgement numbers.
 <br>Used for efficient data transfer.
 
 # Transport Layer Addressing
