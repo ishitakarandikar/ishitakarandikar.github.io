@@ -303,3 +303,48 @@ It allows us to take these private IP addresses, allows us to route out on the p
 
  ### Ipv6 Acquisition
  
+#### SLAAC
+Stateless Address Auto-Configuration. This is a feature that does not exist at all in IPv4.<br>
+Let us say router has IP of 2001:DB8:4:A::1. This router is going to periodically send router advertisement. In this, it is going to adverstise what network this particular segment of the network is, so it is going to advertise the network address, so the IPv6 netowkr address as well as some other info that our endpoints of our workstation can use to automatically configure themselves without asking.<br>
+So, after sending router advertisement, out in the network. That happens periodically, so we don't have to wait for a new device to come on. That router is just sending those messages out regularly. Workstation will then automatically configure its address.
+<br> It knows it has network 2001:DB8:4:A:: with a /64 mask. <br>And now the way the interfacce identifier portion is configured depends upon the Operating System.
+<br>If system is windows, it is going to choose random 64 bit interface identifier.
+Randomly assign next 64 bits information to become interface identifier.<br>Example - 2001:DB8:4:A:67835FA1:7B4C:A42A /64
+<br> It will create two of these [global and link local]. We can configure more than two addresses besides our link local addresses on those interfaces. When windows chooses two of them and applies them to the interface.
+<br>If system is Unix/Linux/Mac, modifies EUI-64 address is used.
+We are oging to take the MAC address of our network interface card. Split it into two and then add FF:FE in the middle. This will make the address 64 bits long.
+<br>Then we take 7th bit in that list and we flip it, and then we convert it back to hexadecimal, now this becomes the interface identifier.
+<br>MAC => 000C:29:FC:70A5
+<br>=>000C:29:FF:FE:FC:70A5
+<br>=>020C:29:FF:FE:FC:70A5
+<br>Problem with this is, if we are using MAC address in our interface identifier portion, anybody on the public internet that is recieving traffic from us will know our MAC address.
+#### DHCP
+Similar to IPv4 DHCP. We have DHCP server on our network. Wen our device comes online, it is going to send out advertisement needing the address. DHCP server will reply with one.
+<br>In order to do that, we have set our router up to turn off SLAAC. This allows for a lot more control, it allows for shorter address, especially in our internal network.
+### IPv6 Tunneling
+One of the problems with IPv6 is not everywhere supports it, not all ISP have full support of it, it is not used globally the way IPv4 is.
+<br>Say, we have some IPv6 internet here locally and we want to connect it to a device far away that has an IPv6 address.
+<br>We have to find a way to get our IPv6 internet traffic accross IPv4 internet, and those two are not backwards compatible with each other.
+<br>So, we build a tunnel.
+<br>Tunnel is a mechanism where we can take an IPv6 message, an IPv6 packet and put it inside of IPv4 packet, move it accross IPv4 internet to other device where it will be pulled out of the IPv4 packet and then put back into and IPv6 message and it can be forwarded.
+<br>This tunneling allows our IPv6 device to traverse the IPv4 internet and accross a device that has an IPv6 address.
+
+## Network Services
+### NAT [Network Address Translation]
+It is a network layer function, we need this to make the internet grow how we use it today.
+Private adresses which are in the private range, can not be routed on the public internet.<br>
+If we send a message into the public internet with a destination of any of these private addresses. Internet will just throw it away. All these routers on the internet are programme to dicard messages with a destination address of one of these ranges.
+<br>We send our message from our workstation to the router, we have configured to do our NAT.
+Router will remove source IP from the packet and store it in a table. Place sourse IP with IP of our router which is a public routable IP address. We then forward that mesage on to the internet. Now while recieving messages, destination becomes the IP of the router, once our router recieves that message it looks up in the little table that it has set up and replaces the outside public IP with the inside IP address and forwards it to our workstation.
+<br>This is how NAT works. NAT is swapping out addresses in our packets in order to make those messages routable on the public internet. This is the primary use of it.
+### DHCP
+This is an application layer protocol. We need a DHCP server, a device on our network that can hand out addresses to the clients as they come online.
+<br>Large organizations have a dedicated DHCP server that hands out the addresses for hte entire organizations. <br>
+In our home network, DHCP server is built in to the router.
+<br>When we configure our device, we configure our IP properties here and say obtain an IP automatically, this is going to use DHCP to get that address.
+<br>Our DHCP server then is set up with a scope. Scope is the parameters of DHCP. We hace range of excluded addresses, often times we put excluded addresses in our DHCP scope that hte server does not hand out these addresses, and we can use them either to statically assign to devices or set up a reservation that is specific for the device.
+Usually, these excluded addresses are reserved for static configuration, for things like servers or printer or other storage hardware that may not support DHCP very well.
+We need to include our gateway in the scope so that our device know where the default gateway is so that when we are trying to send traffic off of our subnet, our workstation know how to route that traffic appropriately.
+<br>We need to configure a DNS server.
+<br>Then we have a lease time, amount of time that our workstations are going to hold on to that IP address before asking for a new one.
+<br>Now, we need an address, our workstation sens out a discover message, and this message is oging to be recieved by the HCP server, this server is going to make and offer to the workstation, so that it then becomes the IP address of the workstation. The workstation will request this address, and server will send back message of acknowlesgement.
