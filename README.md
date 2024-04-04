@@ -255,3 +255,51 @@ We can identify network portion and host portion by subnet mask.<br>
 <br>Class B -> N.N.H.H
 <br>Class C -> N.N.N.H
 <br>Class D -> N.N.N.N
+
+### IP Address Type
+#### Network Address
+Identifier for a group of devices. Also known as Network Prefix. <br>Has all 1's in the network portion and has all 0's in the host portion.
+
+#### Broadcast Address
+Identifier for all devices on a network.<br> Has all 1's in the host portion.
+
+#### Host Address
+Identifies unique devices on the internet.
+<br>Has some combination of 1's and 0's in the host portion.
+ Neither all 1's or all 0's.
+
+ ### Private IP
+ Prior to 1994, there were no private IP addresses. Because we were running out of IP addresses, we changed to classless addressing, which gave us the subnet mask. And private IP address ranges were also introduced.
+ <br>Any organization could use these private IP addresses. They would not be routed publically on the internet. This allowed organizations to set up very large IT infrastructure and very large networks using IP addressed without confilicting with other organizations. This really saved the internet and allowed it to expand and grew as much as it did.
+ <br> Three ranges of address ->
+ <br>A   10.0.0.0    - 10.255.255.255
+ <br>B   172.16.0.0  - 172.255.255.255
+ <br>C   192.168.0.0 - 192.168.255.255
+ <br>This is all documented in Request for comments or RFC.
+ <br>APIPA =>162.254.0.0 /16
+ <br>Loopback => 127.0.0.1 => localhost
+ <br>
+ 
+#### NAT [Network Address Translation]
+It allows us to take these private IP addresses, allows us to route out on the public internet by translating it into public IP address for a moment while it routes accross the public internet and then it gets translated back in to a private address when it reaches our internal network.
+ ### Subnetting
+ ## IPv6 Addressing
+ IPv4 size => 32 bits long => 4 octets
+ <br>IPv6 size => 128 bits long => 32 nibbles => 8 hextets
+ <br>Example : 2001:0DB8:0002:008D:0000:000:00A5:52F5
+ <br>In IPv6 we typically use /64 mask on everything.
+
+ <br><br>To make it simpler=>
+ <br>->Eliminate leading 0's
+ <br>  2001:DB8:2:8D:0:0:A5:52F5
+ <br>->Eliminate series of 0's with :: [can only be done once]
+ <br>  2001:DB8:2:8D::A5:52F5
+
+ <br><br>
+ When we are communicating between devices on the internet, Internet is full of routers that can route IPv6. We are using IPv6 unicast addresses. These addresses are used for global communication.
+ <br>Every single devie in our network is going to have two IPv6 addresses.
+ <br>-> IPv6 Link Local Address [switch]
+ <br>-> Global Communication
+
+ ### Ipv6 Acquisition
+ 
