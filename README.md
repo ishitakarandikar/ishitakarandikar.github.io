@@ -205,3 +205,53 @@ However, this time, we are just going to start talking.
 Client will say to server to send data. And then server, if it recieves it and it is able to, it will send the data to the client.
 <br>There is no mechanism to make sure that the data sent was actually recieved. There is no three way handshake, there is mo four way disconnect, there is no reset, no reliable communication, no sequence number, no acknowledgement numbers.
 <br>Used for efficient data transfer.
+
+# Transport Layer Addressing
+## Port Numbers
+There are two sets of port numbers<br>0-65535
+<br>->Server Port Numbers or Well Known/Registered Port Numbers
+<br>->Client Port Numbers or Ephemeral Port Numbers
+<br>
+<br>
+### Well known [0-1023]
+Typically for applications
+<br>HTTP - 80
+<br>HTTPs - 443
+<br> FTP - 20,21
+<br> SSH - 22
+<br> Telnet - 23
+<br>
+### Registered [1024 - 49151]
+These are for customer applications "official and un-official". There are many games that would use registered port numbers.
+### Ephemeral [49152 - 65535]
+Used by client or the PC side of this in order to identify the session that they are sending.
+
+# Network Layer
+## IP Addressing 
+Mechanism for us to be able to communicate accross long distance on the internet. IP address is a unique identifier for your device on the public internet. There are routing tables on the public internet that allow anybody to communicate with your IP address.<br>Generally, we find out IP address of device by DNS.<br>
+Example - 203.0.113.10 [32 bits]
+<br> How to identify network portion and host portion?
+<br>->Classless Addressing
+<br>->CLassfull Addressing
+
+### Classless Addressing
+We can identify network portion and host portion by subnet mask.<br>
+255.255.255.0
+<br>11111111.11111111.11111111.00000000
+<br>1's are network portion 
+<br>0's are host portion
+
+### Classfull Addressing
+
+| class | IP Range                    |
+| ----- | --------------------------- |
+|   A   | 0.0.0.0 - 127.255.255.255   |
+|   B   | 128.0.0.0 - 191.255.255.255 |
+|   C   | 192.0.0.0 - 223.255.255.255 |
+|   D   | 224.0.0.0 - 239.255.255.255 |
+|   E   | 240.0.0.0 - 255.255.255.255 |
+
+<br>Class A -> N.H.H.H
+<br>Class B -> N.N.H.H
+<br>Class C -> N.N.N.H
+<br>Class D -> N.N.N.N
